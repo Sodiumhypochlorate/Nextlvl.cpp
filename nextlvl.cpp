@@ -1,21 +1,50 @@
 #include <iostream>
 #include <string>
-using namespace std ;
 
 // My classes go here... //
 
+class Menu{
+    private:
+
+    public:
+        // constructor //
+        Menu(){
+            std::cout<< "Welcome to NextLVL a Text-Based rpg...\nEnjoy!\n"<< "To use this menu either type in the option number or the first letter..."<<std::endl;
+            std::cout<<"1.(s)tart   2.(c)ontinue   3.(o)ptions   4.(g)ame info    5.(e)xit"<<std::endl;
+        }
+        // ends program prematurely //
+        void gamebreak(){
+            std::exit(0);
+        }
+        // this part is just a temporary solution candy //
+
+
+};
+
+class Enemy{
+    private:
+    public:
+
+};
+
+
+class NPC{
+    private:
+    public:
+};
+
 class Soldier{
     private:
-        string sname;
+        std::string Sname;
         int hp;
         int lvl;
         int str;
         int exp;
     public:
         // constructor //
-        Soldier(string x){
-            setsname(x);
-            cout <<"Hero Created!"<< endl;
+        Soldier(std::string x){
+            setSname(x);
+            std::cout <<"A hero is being created!"<<std::endl;
             hp = 100;
             lvl = 0;
             exp = 0;
@@ -23,12 +52,12 @@ class Soldier{
         }
         
         // give soldier a name //
-        void setsname(string x){
-            x = sname;
+        void setSname(std::string x){
+            Sname = x;
         }
         // check soldier name //
-        string getsname(){
-            return sname;
+        std::string getSname(){
+            return Sname;
         }
         // check health points //
         int gethealth(){
@@ -49,21 +78,31 @@ class Soldier{
 };
 
 int main(){
+    // Menu //
+    Menu main;
+    std::string x;
+    std::getline(std::cin,x);
+    if (x == "e"|| x == "5" ){
+        main.gamebreak();
+    }
+    else if (x =="1"|| x=="s"){
+    // End of Menu //
     int rand = 0;
-    Soldier hero;
+    Soldier hero("Name");
     // The name selection //
     while (rand == 0){
-    cout << "What be your name hero?"<< endl;
-    string Hero_Name;
-    getline(cin, Hero_Name);
-    hero.setsname(Hero_Name);
-    cout << "Okay, "<< Hero_Name<< "..."<< endl<< "Are you sure?\ny or n?\n";
-    string Answer;
-    getline(cin,Answer);
-    if (Answer == "y"){
-        rand = 1;  
+       std::cout << "What be your name hero?"<< std::endl;
+       std::string Hero_Name;
+       std::getline(std::cin, Hero_Name);
+       hero.setSname(Hero_Name);
+       std::cout << "Okay, "<< Hero_Name<< "..."<<std::endl<< "Are you sure?\ny or n?\n";
+       std::string Answer;
+       std::getline(std::cin,Answer);
+       if (Answer == "y"){
+          rand = 1;  
     }} 
     // end of name selection //
-    cout << "Okay, "<< hero.getsname()<< "...\nYou are currently at:\n"<< hero.gethealth()<<"hp!\n"<< hero.getexp()<<"Experience points!\nOn level "<<hero.getlvl()<<"..."<<endl;
+    std::cout << "Okay, "<< hero.getSname()<< "...\nYou are currently at:\n"<< hero.gethealth()<<"hp!\n"<< hero.getexp()<<"Experience points!\nOn level "<<hero.getlvl()<<"..."<<std::endl;
+    }
     return 0;
 }
