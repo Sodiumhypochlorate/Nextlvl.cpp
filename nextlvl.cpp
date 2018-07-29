@@ -87,7 +87,7 @@ int main(){
     }
     else if (x =="1"|| x=="s"){
     // End of Menu //
-    int rand = 0;
+    bool rand = 0;
     Soldier hero("Name");
     // The name selection //
     while (rand == 0){
